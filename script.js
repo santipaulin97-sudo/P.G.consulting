@@ -6,11 +6,11 @@ langBtn.addEventListener('click', () => {
     langBtn.innerText = currentLang === 'es' ? 'EN' : 'ES';
 
     document.querySelectorAll('[data-es]').forEach(el => {
-        el.innerHTML = el.getAttribute(`data-${currentLang}`);
+        el.innerText = el.getAttribute(`data-${currentLang}`);
     });
 });
 
-// Smooth scroll para links internos
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
