@@ -1,178 +1,278 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Engineering & Automation Consulting</title>
-  <meta name="description" content="Data Engineering, Automation and Analytics services for US companies.">
+  <title>Automatización & Data Engineering | Consultoría</title>
+  <meta name="description" content="Data Engineering, Automation y Analytics para empresas de Latinoamérica y Estados Unidos.">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">
+        <span>⬡</span> Tech Consulting
+      </div>
+      <ul class="nav-links">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#casos">Casos</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a href="#contacto" class="cta-button">Diagnóstico Gratis</a>
+    </div>
+  </nav>
+
   <!-- HERO -->
- <section id="hero">
-  <h1>Automation & Cloud Reporting for Mid-Size and Enterprise Companies</h1>
-  <p>
-    I design automated data workflows and cloud-based reporting systems
-    so your teams get accurate, up-to-date insights without manual work.
-  </p>
-  <a href="#contact">Free 30-min Diagnostic Call</a>
-</section>
+  <section class="hero">
+    <h1>
+      Automatice su Primer Proceso
+      <span class="highlight">100% Gratis</span>
+    </h1>
+    <p>
+      Descubra el potencial de la automatización sin compromiso. 
+      Le implementamos una automatización simple completamente gratis 
+      para que vea resultados reales en su negocio.
+    </p>
+    <div class="hero-buttons">
+      <a href="#contacto" class="btn-primary">Solicitar Mi Automatización Gratis</a>
+      <a href="#proceso" class="btn-secondary">¿Cómo Funciona?</a>
+    </div>
+    <div class="hero-features">
+      <div class="hero-feature">
+        <span class="check-icon">✓</span>
+        <span>Sin tarjeta de crédito</span>
+      </div>
+      <div class="hero-feature">
+        <span class="check-icon">✓</span>
+        <span>Sin compromiso</span>
+      </div>
+      <div class="hero-feature">
+        <span class="check-icon">✓</span>
+        <span>Resultados en 2 semanas</span>
+      </div>
+    </div>
+  </section>
 
   <!-- SERVICES -->
- <section id="services">
-  <h2>Services</h2>
-
-  <div>
-    <h3>Process & Data Automation</h3>
-    <p>
-      End-to-end automation of operational and financial workflows.
-      Eliminate manual tasks and reduce errors using cloud-native solutions.
+  <section id="servicios">
+    <h2>Servicios de Automatización y Data</h2>
+    <p class="section-subtitle">
+      Soluciones end-to-end para automatizar procesos, reportes en la nube 
+      y pipelines de datos escalables
     </p>
-  </div>
+    
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Automatización de Procesos</h3>
+        <p>
+          Automatización end-to-end de flujos operacionales y financieros.
+          Eliminamos tareas manuales y reducimos errores usando soluciones cloud-native.
+        </p>
+      </div>
 
-  <div>
-    <h3>Cloud Reporting & Dashboards</h3>
-    <p>
-      Automated dashboards updated in real time from cloud data sources.
-      Reliable KPIs for leadership, finance, and operations teams.
-    </p>
-  </div>
+      <div class="service-card">
+        <h3>Reportes Cloud & Dashboards</h3>
+        <p>
+          Dashboards automatizados que se actualizan en tiempo real desde fuentes de datos cloud.
+          KPIs confiables para equipos de liderazgo, finanzas y operaciones.
+        </p>
+      </div>
 
-  <div>
-    <h3>Data Pipelines & Integration</h3>
-    <p>
-      Scalable data pipelines using SQL and Python, integrated with
-      modern cloud data warehouses.
-    </p>
-  </div>
-</section>
-
-  <!-- PROCESS -->
-<section id="process">
-  <h2>How I Work</h2>
-  <ol>
-    <li>
-      <strong>Assessment & Requirements</strong><br>
-      Review current processes, data sources and reporting gaps.
-    </li>
-    <li>
-      <strong>Automation & Implementation</strong><br>
-      Build cloud-based automated workflows and reporting pipelines.
-    </li>
-    <li>
-      <strong>Monitoring & Optimization</strong><br>
-      Ensure reliability, scalability and continuous improvements.
-    </li>
-  </ol>
-</section>
-
-  <!-- BENEFITS -->
-<section id="benefits">
-  <h2>Business Impact</h2>
-  <div>
-    <p>• Reduce manual reporting work by up to 70%</p>
-    <p>• Real-time cloud dashboards for executives and teams</p>
-    <p>• Higher data accuracy and operational reliability</p>
-    <p>• Scalable systems ready for growth</p>
-  </div>
-</section>
-
-  <!-- ENGAGEMENT -->
-<section id="engagement">
-  <h2>Engagement Models</h2>
-
-  <div>
-    <p><strong>Project-Based</strong><br>
-    Fixed-scope automation or reporting projects with clear deliverables.</p>
-
-    <p><strong>Monthly Retainer</strong><br>
-    Ongoing automation, reporting and optimization support.</p>
-
-    <p><strong>Automation Sprint</strong><br>
-    2–4 week focused engagement to automate a critical workflow.</p>
-  </div>
-</section>
+      <div class="service-card">
+        <h3>Pipelines de Datos</h3>
+        <p>
+          Pipelines de datos escalables usando SQL y Python, integrados con
+          data warehouses modernos en la nube.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <!-- CASES -->
-<section id="cases">
-  <h2>Automation in Action</h2>
-
-  <div>
-    <h3>Automated Financial Reporting</h3>
-    <p><strong>Problem</strong><br>
-    Monthly financial reports were built manually using spreadsheets,
-    taking several days and causing inconsistencies across teams.</p>
-
-    <p><strong>Solution</strong><br>
-    Designed a cloud-based automated reporting pipeline that consolidated
-    data from multiple sources and refreshed dashboards automatically.</p>
-
-    <p><strong>Impact</strong><br>
-    • ~60% reduction in manual reporting effort<br>
-    • Faster month-end close<br>
-    • Single source of truth for finance and leadership
+  <section id="casos">
+    <h2>Automatización en Acción</h2>
+    <p class="section-subtitle">
+      Vea cómo los flujos de trabajo resuelven problemas cotidianos de su negocio
     </p>
-  </div>
+    
+    <div class="cases-grid">
+      <div class="case-card">
+        <h3>Reportería Financiera Automatizada</h3>
+        
+        <span class="case-label">Problema</span>
+        <p class="case-text">
+          Los reportes financieros mensuales se construían manualmente usando spreadsheets,
+          tomando varios días y causando inconsistencias entre equipos.
+        </p>
+        
+        <span class="case-label">Solución</span>
+        <p class="case-text">
+          Pipeline automatizado en la nube que consolida datos de múltiples fuentes
+          y actualiza dashboards automáticamente.
+        </p>
+        
+        <div class="case-impact">
+          <span class="case-label">Impacto</span>
+          <ul style="list-style: none; padding-left: 0; margin-top: 0.5rem;">
+            <li>• ~60% reducción en trabajo manual de reportería</li>
+            <li>• Cierre de mes más rápido</li>
+            <li>• Fuente única de verdad para finanzas y liderazgo</li>
+          </ul>
+        </div>
+      </div>
 
-  <div>
-    <h3>Operations Process Automation</h3>
-    <p><strong>Problem</strong><br>
-    Operational data updates relied on manual data pulls and ad-hoc scripts,
-    leading to delays and frequent errors.</p>
+      <div class="case-card">
+        <h3>Automatización de Procesos Operativos</h3>
+        
+        <span class="case-label">Problema</span>
+        <p class="case-text">
+          Las actualizaciones de datos operacionales dependían de extracciones manuales
+          y scripts ad-hoc, generando demoras y errores frecuentes.
+        </p>
+        
+        <span class="case-label">Solución</span>
+        <p class="case-text">
+          Workflows automatizados para ingestar, validar y procesar datos operacionales
+          en la nube de forma programada.
+        </p>
+        
+        <div class="case-impact">
+          <span class="case-label">Impacto</span>
+          <ul style="list-style: none; padding-left: 0; margin-top: 0.5rem;">
+            <li>• Visibilidad operacional casi en tiempo real</li>
+            <li>• Menos errores de datos</li>
+            <li>• Equipos enfocados en análisis en vez de trabajo manual</li>
+          </ul>
+        </div>
+      </div>
 
-    <p><strong>Solution</strong><br>
-    Implemented automated workflows to ingest, validate and process
-    operational data in the cloud on a scheduled basis.</p>
+      <div class="case-card">
+        <h3>Pipelines Cloud para Analytics</h3>
+        
+        <span class="case-label">Problema</span>
+        <p class="case-text">
+          Los datos estaban fragmentados entre sistemas, dificultando la construcción
+          de dashboards confiables para toma de decisiones.
+        </p>
+        
+        <span class="case-label">Solución</span>
+        <p class="case-text">
+          Pipelines de datos escalables integrando múltiples fuentes en un
+          data warehouse centralizado en la nube.
+        </p>
+        
+        <div class="case-impact">
+          <span class="case-label">Impacto</span>
+          <ul style="list-style: none; padding-left: 0; margin-top: 0.5rem;">
+            <li>• Dashboards confiables, siempre actualizados</li>
+            <li>• Toma de decisiones más rápida</li>
+            <li>• Plataforma lista para escalar con el crecimiento</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <p><strong>Impact</strong><br>
-    • Near real-time operational visibility<br>
-    • Fewer data errors<br>
-    • Teams focused on analysis instead of manual work
+  <!-- PROCESS -->
+  <section id="proceso">
+    <h2>¿Cómo Trabajo?</h2>
+    <p class="section-subtitle">
+      Proceso simple y transparente desde la evaluación inicial hasta la optimización continua
     </p>
-  </div>
+    
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-number">1</div>
+        <h3>Evaluación & Requerimientos</h3>
+        <p>
+          Revisión de procesos actuales, fuentes de datos y gaps en reportería.
+        </p>
+      </div>
 
-  <div>
-    <h3>Cloud Data Pipelines for Analytics</h3>
-    <p><strong>Problem</strong><br>
-    Data was fragmented across systems, making it difficult to build
-    reliable dashboards for decision-making.</p>
+      <div class="process-step">
+        <div class="step-number">2</div>
+        <h3>Automatización & Implementación</h3>
+        <p>
+          Construcción de workflows automatizados en la nube y pipelines de reportería.
+        </p>
+      </div>
 
-    <p><strong>Solution</strong><br>
-    Built scalable data pipelines integrating multiple sources into a
-    centralized cloud data warehouse.</p>
+      <div class="process-step">
+        <div class="step-number">3</div>
+        <h3>Monitoreo & Optimización</h3>
+        <p>
+          Garantizamos confiabilidad, escalabilidad y mejoras continuas.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <p><strong>Impact</strong><br>
-    • Reliable, always up-to-date dashboards<br>
-    • Faster decision-making<br>
-    • Platform ready to scale with business growth
-    </p>
-  </div>
+  <!-- BENEFITS -->
+  <section>
+    <h2>Impacto en su Negocio</h2>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <p>Reducción de hasta 70% en trabajo manual de reportería</p>
+      </div>
+      <div class="benefit-item">
+        <p>Dashboards cloud en tiempo real para ejecutivos y equipos</p>
+      </div>
+      <div class="benefit-item">
+        <p>Mayor precisión de datos y confiabilidad operacional</p>
+      </div>
+      <div class="benefit-item">
+        <p>Sistemas escalables listos para el crecimiento</p>
+      </div>
+    </div>
+  </section>
 
-</section>
+  <!-- ENGAGEMENT -->
+  <section>
+    <h2>Modelos de Trabajo</h2>
+    <div class="engagement-grid">
+      <div class="engagement-card">
+        <h3>Por Proyecto</h3>
+        <p>
+          Proyectos de automatización o reportería con alcance fijo y entregables claros.
+        </p>
+      </div>
 
+      <div class="engagement-card">
+        <h3>Retainer Mensual</h3>
+        <p>
+          Soporte continuo de automatización, reportería y optimización.
+        </p>
+      </div>
 
-  <!-- ABOUT -->
- <section id="about">
-  <h2>About Me</h2>
-  <p>
-    Data Engineer specialized in automation and cloud reporting.
-    Experience working with large datasets, enterprise systems
-    and US-based companies.
-  </p>
-</section>
+      <div class="engagement-card">
+        <h3>Sprint de Automatización</h3>
+        <p>
+          Engagement enfocado de 2–4 semanas para automatizar un flujo crítico.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <!-- CONTACT -->
-<section id="contact">
-  <h2>Free Diagnostic Call</h2>
-  <p>
-    Book a 30-minute call to review your automation and reporting needs.
-    No commitment.
-  </p>
-  <p>Email: santipaulin97@email.com</p>
-</section>
+  <section id="contacto">
+    <div class="contact-section">
+      <h2>Llamada de Diagnóstico Gratuita</h2>
+      <p>
+        Reserve una llamada de 30 minutos para revisar sus necesidades de automatización y reportería.
+        <br>Sin compromiso.
+      </p>
+      <a href="mailto:santipaulin97@email.com" class="btn-primary">Agendar Llamada</a>
+      <p class="contact-info">santipaulin97@email.com</p>
+    </div>
+  </section>
 
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Tech Consulting. Automatización & Data Engineering para Latinoamérica y Estados Unidos.</p>
+  </footer>
 
 </body>
 </html>
