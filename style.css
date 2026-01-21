@@ -1,258 +1,103 @@
-/* VARIABLES DE COLOR (Estilo MGA) */
 :root {
-    --bg-dark: #0a0f16;
-    --card-bg: #111823;
+    --bg-dark: #050a10;
+    --card-bg: #0d141f;
     --accent-blue: #00A3FF;
-    --text-main: #ffffff;
-    --text-muted: #94a3b8;
-    --green-offer: #10b981;
+    --text-white: #ffffff;
+    --text-gray: #94a3b8;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
 body {
-    font-family: 'Inter', sans-serif;
     background-color: var(--bg-dark);
-    color: var(--text-main);
+    color: var(--text-white);
     line-height: 1.6;
 }
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
 /* NAVEGACIÓN */
 nav {
     padding: 20px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background: rgba(5, 10, 16, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0; z-index: 1000;
 }
 
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 30px;
-}
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
 
-.nav-links {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-}
+.logo { font-size: 1.5rem; font-weight: 800; }
+.logo span { color: var(--accent-blue); font-weight: 300; }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-main);
-    font-size: 0.9rem;
-    font-weight: 400;
-}
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links a { text-decoration: none; color: var(--text-white); font-size: 0.9rem; transition: 0.3s; }
+.nav-links a:hover { color: var(--accent-blue); }
 
 .cta-nav {
     background: var(--accent-blue);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
+    color: white; padding: 10px 20px;
+    border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem;
 }
 
 /* HERO */
-.hero {
-    text-align: center;
-    padding: 100px 0;
-}
+.hero { text-align: center; padding: 120px 0 80px; }
 
-.hero h1 {
-    font-size: 3.8rem;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 20px;
-}
+.hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; max-width: 900px; margin: 0 auto 20px; }
+.highlight { color: var(--accent-blue); }
 
-.highlight {
-    color: var(--accent-blue);
-}
+.hero-subtitle { color: var(--text-gray); font-size: 1.25rem; max-width: 700px; margin: 0 auto 40px; }
 
-.hero-subtitle {
-    color: var(--text-muted);
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 40px;
-}
-
-/* BOTONES */
 .btn-primary {
     background: var(--accent-blue);
-    color: white;
-    padding: 18px 35px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    display: inline-block;
-    transition: 0.3s;
+    color: white; padding: 20px 40px;
+    border-radius: 50px; text-decoration: none; font-weight: 700;
+    display: inline-block; box-shadow: 0 10px 30px rgba(0, 163, 255, 0.3);
 }
 
-.btn-secondary {
-    border: 1px solid rgba(255,255,255,0.2);
-    color: var(--accent-blue);
-    padding: 18px 35px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    display: inline-block;
-    margin-left: 15px;
-}
+.trust-badges { margin-top: 40px; display: flex; justify-content: center; gap: 30px; color: var(--text-gray); font-size: 0.9rem; }
+.trust-badges i { color: var(--accent-blue); margin-right: 5px; }
 
-.trust-badges {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
+/* SERVICIOS */
+.services-section { padding: 80px 0; }
+.section-title { text-align: center; font-size: 2rem; margin-bottom: 50px; }
 
-/* TARJETA OFERTA */
-.offer-card {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(0, 163, 255, 0.2);
-    border-radius: 20px;
-    padding: 40px;
-    margin-top: 60px;
-}
-
-.offer-tag {
-    background: var(--green-offer);
-    color: white;
-    display: inline-block;
-    padding: 5px 15px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 800;
-    margin-bottom: 15px;
-}
-
-/* CASOS (CARDS) */
-.cases-section {
-    padding: 80px 0;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.cases-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.case-card {
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.service-card {
     background: var(--card-bg);
+    padding: 40px; border-radius: 20px;
     border: 1px solid rgba(255,255,255,0.05);
-    padding: 30px;
-    border-radius: 20px;
     transition: 0.3s;
 }
+.service-card i { font-size: 2.5rem; color: var(--accent-blue); margin-bottom: 20px; display: block; }
+.service-card h3 { margin-bottom: 15px; }
+.service-card p { color: var(--text-gray); }
 
-.case-card:hover {
-    border-color: var(--accent-blue);
-    transform: translateY(-5px);
+/* CASOS */
+.cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.case-card {
+    background: linear-gradient(135deg, #0d141f 0%, #050a10 100%);
+    padding: 40px; border-radius: 24px; border: 1px solid rgba(0, 163, 255, 0.1);
+}
+.case-badge {
+    background: rgba(0, 163, 255, 0.1); color: var(--accent-blue);
+    display: inline-block; padding: 5px 12px; border-radius: 5px; font-size: 0.8rem; margin-bottom: 15px;
 }
 
-.case-img-placeholder {
-    background: #000;
-    height: 180px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
+/* EQUIPO */
+.team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
+.member-card {
+    background: var(--card-bg); padding: 40px; border-radius: 20px; display: flex; align-items: center; gap: 20px;
 }
+.member-info h3 { margin-bottom: 5px; }
+.role { color: var(--accent-blue); font-family: 'Fira Code', monospace; font-size: 0.9rem; margin-bottom: 15px; }
+.desc { color: var(--text-gray); font-size: 0.9rem; margin-bottom: 15px; }
+.socials a { color: var(--text-white); margin-right: 15px; font-size: 1.2rem; }
 
-.case-link {
-    color: var(--accent-blue);
-    text-decoration: none;
-    font-weight: 600;
-    display: block;
-    margin-top: 20px;
-}
+footer { padding: 50px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-gray); font-size: 0.8rem; }
 
-/* EXPERIENCIA & STATS */
-.experience-section {
-    padding: 100px 0;
-    text-align: center;
-}
-
-.profile-img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid var(--accent-blue);
-    margin-bottom: 20px;
-}
-
-.badge-ml {
-    color: var(--accent-blue);
-    font-size: 0.9rem;
-    margin-top: 10px;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    margin: 50px 0;
-    gap: 20px;
-}
-
-.stat-value {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--accent-blue);
-}
-
-.stat-label {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-.testimonials {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 40px;
-}
-
-.testimonial-card {
-    background: rgba(255,255,255,0.03);
-    padding: 25px;
-    border-radius: 15px;
-    font-style: italic;
-    text-align: left;
-}
-
-footer {
-    padding: 40px;
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-/* RESPONSIVE */
 @media (max-width: 768px) {
     .hero h1 { font-size: 2.5rem; }
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .testimonials { grid-template-columns: 1fr; }
+    .cases-grid, .team-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
 }
