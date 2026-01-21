@@ -8,7 +8,7 @@ langBtn.addEventListener('click', () => {
     document.querySelectorAll('[data-es]').forEach(el => {
         const text = el.getAttribute(`data-${currentLang}`);
         if (text) {
-            // USAR innerHTML para que las negritas y listas se vean correctamente
+            // USAMOS innerHTML para procesar los tags de <strong> y <li> correctamente
             el.innerHTML = text; 
         }
     });
