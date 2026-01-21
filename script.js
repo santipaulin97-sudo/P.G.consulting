@@ -8,8 +8,8 @@ langBtn.addEventListener('click', () => {
     document.querySelectorAll('[data-es]').forEach(el => {
         const text = el.getAttribute(`data-${currentLang}`);
         if (text) {
-            // innerHTML es clave para que las listas del banner funcionen
-            el.innerHTML = text;
+            // USAR innerHTML para que las negritas y listas se vean correctamente
+            el.innerHTML = text; 
         }
     });
 });
