@@ -1,103 +1,199 @@
 :root {
-    --bg-dark: #050a10;
-    --card-bg: #0d141f;
-    --accent-blue: #00A3FF;
+    /* Paleta Premium */
+    --bg-main: #080c14; /* Negro azulado profundo */
+    --bg-secondary: #111826; /* Un poco más claro para tarjetas */
+    
+    /* El nuevo acento dinámico (Azul a Cian) */
+    --accent-primary: #0066FF;
+    --accent-secondary: #00E0FF;
+    --accent-gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    --accent-glow: rgba(0, 224, 255, 0.3); /* Para efectos de luz */
+
     --text-white: #ffffff;
-    --text-gray: #94a3b8;
+    --text-muted: #9ca3af;
+    --border-light: rgba(255, 255, 255, 0.08);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
 body {
-    background-color: var(--bg-dark);
+    /* Fondo con profundidad, no plano */
+    background: radial-gradient(circle at top center, #1a2236 0%, var(--bg-main) 60%);
     color: var(--text-white);
     line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-/* NAVEGACIÓN */
+/* --- NAVEGACIÓN MEJORADA --- */
 nav {
     padding: 20px 0;
-    background: rgba(5, 10, 16, 0.8);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0; z-index: 1000;
+    /* Efecto cristal esmerilado */
+    background: rgba(8, 12, 20, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-light);
+    position: sticky; top: 0; z-index: 1000;
 }
 
 .nav-container { display: flex; justify-content: space-between; align-items: center; }
 
-.logo { font-size: 1.5rem; font-weight: 800; }
-.logo span { color: var(--accent-blue); font-weight: 300; }
+.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+/* El "Consulting" ahora tiene el degradado */
+.logo span { 
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400; 
+}
 
 .nav-links { display: flex; list-style: none; gap: 30px; }
-.nav-links a { text-decoration: none; color: var(--text-white); font-size: 0.9rem; transition: 0.3s; }
-.nav-links a:hover { color: var(--accent-blue); }
+.nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.95rem; transition: 0.3s; font-weight: 500; }
+.nav-links a:hover { color: var(--accent-secondary); }
+
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.lang-btn { background: none; border: 1px solid var(--border-light); color: var(--text-muted); padding: 8px 12px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+.lang-btn:hover { border-color: var(--accent-secondary); color: var(--text-white); }
 
 .cta-nav {
-    background: var(--accent-blue);
-    color: white; padding: 10px 20px;
+    background: var(--accent-gradient);
+    color: white; padding: 10px 24px;
     border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    transition: 0.3s; box-shadow: 0 4px 15px var(--accent-glow);
+}
+.cta-nav:hover { transform: translateY(-2px); box-shadow: 0 8px 25px var(--accent-glow); }
+
+/* --- HERO SECTION CON "GLOW" --- */
+.hero { 
+    text-align: center; padding: 140px 0 100px; 
+    position: relative;
 }
 
-/* HERO */
-.hero { text-align: center; padding: 120px 0 80px; }
+/* Efecto de luz detrás del título */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 10%; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 400px;
+    background: var(--accent-primary);
+    opacity: 0.15; filter: blur(100px);
+    z-index: -1;
+    pointer-events: none;
+}
 
-.hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; max-width: 900px; margin: 0 auto 20px; }
-.highlight { color: var(--accent-blue); }
+.hero h1 { font-size: 4rem; font-weight: 800; line-height: 1.1; max-width: 950px; margin: 0 auto 25px; letter-spacing: -1px; }
 
-.hero-subtitle { color: var(--text-gray); font-size: 1.25rem; max-width: 700px; margin: 0 auto 40px; }
+/* El texto destacado ahora brilla con degradado */
+.highlight { 
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.hero-subtitle { color: var(--text-muted); font-size: 1.35rem; max-width: 750px; margin: 0 auto 50px; font-weight: 300; }
 
 .btn-primary {
-    background: var(--accent-blue);
-    color: white; padding: 20px 40px;
-    border-radius: 50px; text-decoration: none; font-weight: 700;
-    display: inline-block; box-shadow: 0 10px 30px rgba(0, 163, 255, 0.3);
+    background: var(--accent-gradient);
+    color: #fff; padding: 20px 45px;
+    border-radius: 50px; text-decoration: none; font-weight: 700; fontSize: 1.1rem;
+    display: inline-block; transition: all 0.3s ease;
+    box-shadow: 0 10px 30px -10px var(--accent-secondary);
+}
+.btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 20px 40px -10px var(--accent-secondary); }
+
+.trust-badges { margin-top: 50px; display: flex; justify-content: center; gap: 40px; color: var(--text-muted); font-size: 0.95rem; }
+.trust-badges span { display: flex; align-items: center; gap: 8px; }
+.trust-badges i { color: var(--accent-secondary); }
+
+/* --- SECCIONES GENERALES --- */
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 60px; font-weight: 700; }
+
+/* --- TARJETAS MEJORADAS (Servicios y Casos) --- */
+.services-section, .cases-section, .team-section { padding: 100px 0; }
+
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+
+/* Estilo base para todas las tarjetas */
+.service-card, .case-card, .member-card {
+    background: linear-gradient(145deg, var(--bg-secondary), var(--bg-main));
+    padding: 40px; 
+    border-radius: 24px;
+    border: 1px solid var(--border-light);
+    transition: all 0.4s ease;
+    position: relative; overflow: hidden;
 }
 
-.trust-badges { margin-top: 40px; display: flex; justify-content: center; gap: 30px; color: var(--text-gray); font-size: 0.9rem; }
-.trust-badges i { color: var(--accent-blue); margin-right: 5px; }
-
-/* SERVICIOS */
-.services-section { padding: 80px 0; }
-.section-title { text-align: center; font-size: 2rem; margin-bottom: 50px; }
-
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.service-card {
-    background: var(--card-bg);
-    padding: 40px; border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: 0.3s;
+/* Efecto hover premium para las tarjetas */
+.service-card:hover, .case-card:hover, .member-card:hover {
+    border-color: transparent;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -20px rgba(0,0,0,0.5);
 }
-.service-card i { font-size: 2.5rem; color: var(--accent-blue); margin-bottom: 20px; display: block; }
-.service-card h3 { margin-bottom: 15px; }
-.service-card p { color: var(--text-gray); }
-
-/* CASOS */
-.cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-.case-card {
-    background: linear-gradient(135deg, #0d141f 0%, #050a10 100%);
-    padding: 40px; border-radius: 24px; border: 1px solid rgba(0, 163, 255, 0.1);
-}
-.case-badge {
-    background: rgba(0, 163, 255, 0.1); color: var(--accent-blue);
-    display: inline-block; padding: 5px 12px; border-radius: 5px; font-size: 0.8rem; margin-bottom: 15px;
+/* Borde degradado al hacer hover */
+.service-card:hover::before, .case-card:hover::before, .member-card:hover::before {
+    content: ''; position: absolute; inset: 0; padding: 1px; 
+    border-radius: 24px; 
+    background: var(--accent-gradient); 
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    pointer-events: none;
 }
 
-/* EQUIPO */
-.team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
-.member-card {
-    background: var(--card-bg); padding: 40px; border-radius: 20px; display: flex; align-items: center; gap: 20px;
+/* Iconos de servicios con degradado */
+.service-card i { 
+    font-size: 3rem; margin-bottom: 25px; display: block; 
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-.member-info h3 { margin-bottom: 5px; }
-.role { color: var(--accent-blue); font-family: 'Fira Code', monospace; font-size: 0.9rem; margin-bottom: 15px; }
-.desc { color: var(--text-gray); font-size: 0.9rem; margin-bottom: 15px; }
-.socials a { color: var(--text-white); margin-right: 15px; font-size: 1.2rem; }
+.service-card h3 { margin-bottom: 15px; font-size: 1.3rem; }
+.service-card p, .case-card p, .member-card .desc { color: var(--text-muted); font-size: 0.95rem; }
 
-footer { padding: 50px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-gray); font-size: 0.8rem; }
+/* --- CASOS DE ÉXITO --- */
+.cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; }
 
+.case-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+.case-header img { filter: drop-shadow(0 0 5px rgba(255,255,255,0.2)); }
+.icon-blue { color: var(--accent-secondary); font-size: 1.5rem; }
+.tag { 
+    background: rgba(0, 224, 255, 0.1); color: var(--accent-secondary); 
+    padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; 
+    border: 1px solid rgba(0, 224, 255, 0.2);
+}
+.case-card h3 { font-size: 1.4rem; margin-bottom: 15px; }
+.case-footer { margin-top: 25px; display: flex; gap: 10px; flex-wrap: wrap; }
+.case-footer span { 
+    font-family: 'Fira Code', monospace; font-size: 0.8rem; 
+    color: var(--text-muted); background: rgba(255,255,255,0.05);
+    padding: 4px 10px; border-radius: 5px;
+}
+
+/* --- EQUIPO --- */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; }
+.member-info h3 { font-size: 1.6rem; margin-bottom: 5px; }
+.role { 
+    color: var(--accent-secondary); font-family: 'Fira Code', monospace; font-weight: 500;
+    font-size: 0.95rem; margin-bottom: 20px; display: inline-block;
+}
+.member-badges { display: flex; gap: 10px; margin-top: 25px; flex-wrap: wrap; }
+.member-badges span { 
+    font-size: 0.75rem; border: 1px solid var(--border-light); 
+    padding: 6px 12px; border-radius: 20px; color: var(--text-white); background: rgba(255,255,255,0.03);
+}
+
+footer { padding: 80px 0 40px; text-align: center; border-top: 1px solid var(--border-light); margin-top: 60px; }
+.footer-links { margin-top: 30px; font-size: 1.5rem; display: flex; justify-content: center; gap: 25px; }
+.footer-links a { color: var(--text-muted); transition: 0.3s; }
+.footer-links a:hover { color: var(--accent-secondary); transform: scale(1.1); }
+
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero-subtitle { font-size: 1.1rem; }
+    .nav-links, .nav-right .lang-btn { display: none; }
     .cases-grid, .team-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
 }
