@@ -106,32 +106,76 @@ const chatInput = document.getElementById('chat-input');
 const chatBody = document.getElementById('chat-body');
 const typingIndicator = document.getElementById('typing-indicator');
 
-sendBtn.addEventListener('click', () => {
-    const text = chatInput.value.trim().toLowerCase();
-    if (text) {
-        addMessage(chatInput.value, 'user');
-        chatInput.value = '';
-        typingIndicator.style.display = 'flex';
+const intents = {
+    payments: [
+        'pago','pagos','formas de pago','metodo de pago','transferencia',
+        'mercado pago','deel','payoneer','tarjeta','paypal'
+    ],
+    price: [
+        'precio','cuanto sale','cuanto cuesta','valor','mensual','mes'
+    ],
+    time: [
+        'tiempo','tarda','plazo','entrega','dias'
+    ],
+    free: [
+        'gratis','free','prueba'
+    ],
+    cases: [
+        'caso','ejemplo','experiencia','exito'
+    ],
+    security: [
+        'seguridad','datos','confidencial','seguro'
+    ],
+    tech: [
+        'gcp','snowflake','python','airflow','herramienta','tech'
+    ],
+    workflow: [
+        'metodo','workflow','proceso','pasos','como trabajan'
+    ],
+    human: [
+        'consultor','hablar','persona','reunion','llamada'
+    ]
+};
 
-        setTimeout(() => {
-            typingIndicator.style.display = 'none';
-            // Lógica de palabras clave
-            if (text.includes('paga') || text.includes('cuota') || text.includes('transferencia') || text.includes('mercado pago') || text.includes('deel') || text.includes('payoneer') || text.includes('cost')) botReply('payments');
-            else if (text.includes('precio') || text.includes('cuanto sale') || text.includes('val') || text.includes('paga') || text.includes('mes')) botReply('price');
-            else if (text.includes('tiempo') || text.includes('tarda') || text.includes('plazo') || text.includes('entrega') || text.includes('dia')) botReply('time');
-            else if (text.includes('gratis') || text.includes('free') || text.includes('regalo') || text.includes('prueba')) botReply('free');
-            else if (text.includes('caso') || text.includes('ejemplo') || text.includes('hicieron') || text.includes('exito') || text.includes('experiencia')) botReply('cases');
-            else if (text.includes('seguridad') || text.includes('datos') || text.includes('confidencial') || text.includes('seguro')) botReply('security');
-            else if (text.includes('gcp') || text.includes('snowflake') || text.includes('tech') || text.includes('python') || text.includes('herramienta') || text.includes('airflow')) botReply('tech');
-            else if (text.includes('metodo') || text.includes('trabajan') || text.includes('hacen') || text.includes('workflow') || text.includes('pasos')) botReply('workflow');
-            else if (text.includes('consultor') || text.includes('hablar') || text.includes('persona') || text.includes('reunion') || text.includes('llamada')) botReply('human');
-            else {
-                addMessage(currentLang === 'es' ? "Entiendo. Un consultor revisará tu duda pronto. ¿Te gustaría agendar una llamada o ver nuestros precios?" : "I understand. A consultant will review your query soon. Would you like to book a call or see our pricing?", 'bot');
-                showChatMenu();
-            }
-        }, 1000);
-    }
+sendBtn.addEventListener('click', () => {
+    const rawText = chatInput.value;
+    const text = rawText
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+    if (!text) return;
+
+    addMessage(rawText, 'user');
+    chatInput.value = '';
+    typingIndicator.style.display = 'flex';
+
+    setTimeout(() => {
+        typingIndicator.style.display = 'none';
+
+        const detectedIntent = Object.entries(intents)
+            .find(([_, keywords]) => keywords.some(k => text.includes(k)))
+            ?.[0];
+
+        if (detectedIntent) {
+            botReply(detectedIntent);
+        } else {
+            console.warn('Fallback:', text);
+
+            addMessage(
+                currentLang === 'es'
+                    ? "Gracias por tu consulta. Puedo ayudarte con precios, formas de pago, tiempos, casos reales o agendar una llamada. ¿Qué te gustaría ver?"
+                    : "Thanks for your message. I can help with pricing, payment methods, timelines, real use cases, or booking a call. What would you like to check?",
+                'bot'
+            );
+            showChatMenu();
+        }
+
+    }, 1000);
 });
+
+
 
 function addMessage(text, type) {
     const msg = document.createElement('div');
