@@ -1,15 +1,4 @@
-/* Jakarta Sans es la fuente de las empresas tech modernas (como OpenAI o Stripe) */
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-    font-family: 'Plus Jakarta Sans', sans-serif; 
-}
-
-/* Usamos JetBrains Mono para detalles técnicos (Typing effect, etiquetas, etc.) */
-#typing-text, .footer-tag, .stat-value {
-    font-family: 'JetBrains Mono', monospace;
-}/* =========================================
+/* =========================================
    1. VARIABLES & SCROLLBAR PRO
    ========================================= */
 :root {
@@ -61,7 +50,15 @@ nav { padding: 25px 0; background: rgba(8, 12, 20, 0.95); backdrop-filter: blur(
 
 .nav-right { display: flex; align-items: center; gap: 20px; }
 .lang-switch-container { display: flex; background: rgba(255, 255, 255, 0.05); border-radius: 50px; padding: 4px; border: 1px solid var(--border); gap: 2px; cursor: pointer; }
-.lang-opt { padding: 6px 14px; border-radius: 50px; font-size: 0.75rem; font-weight: 800; color: var(--text-muted); transition: 0.3s; }
+.lang-opt { 
+    font-family: 'JetBrains Mono', monospace; /* ESTO ES LO QUE CAMBIA */
+    padding: 6px 14px; 
+    border-radius: 50px; 
+    font-size: 0.75rem; 
+    font-weight: 800; 
+    color: var(--text-muted); 
+    transition: 0.3s; 
+}
 .lang-opt.active { background: var(--accent-primary); color: white; box-shadow: 0 0 15px rgba(0, 102, 255, 0.5); }
 
 .cta-nav { background: var(--accent-gradient); color: white; padding: 12px 26px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.85rem; box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3); transition: 0.2s; display: inline-flex; align-items: center; }
