@@ -296,3 +296,22 @@ nav { padding: 25px 0; background: rgba(8, 12, 20, 0.95); backdrop-filter: blur(
     .hero h1 { font-size: 2.5rem; }
     .offer-tag-modern { font-size: 0.7rem; padding: 6px 15px; }
 }
+/* EFECTO DE LUZ (SHINE) EN BOTONES */
+.btn-primary, .btn-primary-alt-modern, .cta-nav {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after, .btn-primary-alt-modern::after, .cta-nav::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -60%;
+    width: 20%; height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(30deg);
+    transition: all 0.6s;
+}
+
+.btn-primary:hover::after, .btn-primary-alt-modern:hover::after, .cta-nav:hover::after {
+    left: 120%;
+}
