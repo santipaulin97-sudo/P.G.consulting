@@ -1,4 +1,15 @@
-/* =========================================
+/* Jakarta Sans es la fuente de las empresas tech modernas (como OpenAI o Stripe) */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+}
+
+/* Usamos JetBrains Mono para detalles técnicos (Typing effect, etiquetas, etc.) */
+#typing-text, .footer-tag, .stat-value {
+    font-family: 'JetBrains Mono', monospace;
+}/* =========================================
    1. VARIABLES & SCROLLBAR PRO
    ========================================= */
 :root {
