@@ -131,8 +131,51 @@ nav { padding: 25px 0; background: rgba(8, 12, 20, 0.95); backdrop-filter: blur(
 .highlight { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .hero-subtitle { color: var(--text-muted); max-width: 800px; margin: 0 auto 40px; font-size: 1.2rem; }
 .btn-primary { background: var(--accent-gradient); color: white; padding: 22px 50px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.3s; }
-.trust-badges { margin-top: 60px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-.trust-badges span { display: inline-flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border); padding: 14px 28px; border-radius: 50px; font-size: 0.95rem; font-weight: 600; }
+/* =========================================
+   BADGES DE CONFIANZA (ESTILO PASTILLA PRO)
+   ========================================= */
+.trust-badges {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Un poco más de espacio entre ellas */
+    flex-wrap: wrap;
+}
+
+.trust-badges span {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    /* Fondo estilo cristal */
+    background: rgba(255, 255, 255, 0.03);
+    /* Borde sutil con transparencia */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 24px;
+    border-radius: 100px; /* Forma de pastilla perfecta */
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-white);
+    /* Efecto de desenfoque de fondo */
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: default;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Color y brillo para los iconos */
+.trust-badges span i {
+    font-size: 1.1rem;
+    color: var(--accent-secondary); /* Usa tu color Cyan */
+    filter: drop-shadow(0 0 5px rgba(0, 224, 255, 0.5));
+}
+
+/* Animación al pasar el mouse */
+.trust-badges span:hover {
+    background: rgba(0, 102, 255, 0.1); /* Sutil tinte azul */
+    border-color: var(--accent-secondary);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 224, 255, 0.2);
+}
 
 /* 11. STATS */
 .stats-bar { padding: 70px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 30px 0; }
